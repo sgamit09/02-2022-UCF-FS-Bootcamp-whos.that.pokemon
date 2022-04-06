@@ -6,7 +6,7 @@ This homework assignment applies what we learned in Javascript mainly. It also c
 
 ### Prerequisites
 
-Visual Studio Code, GitBash, & Google Chrome
+* Visual Studio Code, GitBash, & Google Chrome
 
 ## Deployment
 
@@ -22,7 +22,7 @@ Then the quiz will test your knowledge of Pokemon and possibly meme culture. The
  
 ## Built With
 
-*Visual Studio Code & Bootstrap 5
+* Visual Studio Code & Bootstrap 5
 
 ## Link to Quiz
 
