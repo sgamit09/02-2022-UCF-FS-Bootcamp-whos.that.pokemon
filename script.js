@@ -6,6 +6,7 @@ const countdownEl = document.getElementById('countdown');
 const scoring = document.getElementById('score');
 let currentIndex = 0;//Current Question Index
 let time = 60;
+
 var playerCount = 1;
 
 var pokemonz = [
@@ -29,84 +30,84 @@ var answerChoices = [
   }
 ]
 
-  startScreen();
+startScreen();
 
-  function startScreen() {
-    document.getElementById('score').style.display = 'none';
-    document.getElementById('op1').style.display = 'none';
-    document.getElementById('op2').style.display = 'none';
+function startScreen() {
+  document.getElementById('score').style.display = 'none';
+  document.getElementById('op1').style.display = 'none';
+  document.getElementById('op2').style.display = 'none';
 
-  }
-  document.getElementById("start-btn").addEventListener('click', start);
+}
+document.getElementById("start-btn").addEventListener('click', start);
 
-  function firstQuestion() {
-    whoThat.src = pokemonz[currentIndex];
-    op1.innerText = answerChoices[currentIndex].a[0].text;
-    op2.innerText = answerChoices[currentIndex].a[1].text;
-  }
+function firstQuestion() {
+  whoThat.src = pokemonz[currentIndex];
+  op1.innerText = answerChoices[currentIndex].a[0].text;
+  op2.innerText = answerChoices[currentIndex].a[1].text;
+}
 
-  //start button function
-  function start() {
-    document.getElementById('start-btn').style.display = 'none';
-    document.getElementById('op1').removeAttribute("style");
-    document.getElementById('op2').removeAttribute("style");
-    next();
-    var countdown = setInterval(function () {
-      if (time > 0) {
-        let seconds = time;
-        countdownEl.innerText = seconds;
-        time--;
-      } else {
-        countdownEl.innerText = '0:00';
-        clearInterval(countdown);
-      }
-    }, 1000);
-
-  }
-
-
-  //event listener click to call start function
-  document.getElementById("start-btn").addEventListener('click', start);
-
-  function next() {
-    if (currentIndex >= pokemonz.length)
-      currentIndex = 0; //looping statement   
-    whoThat.src = pokemonz[currentIndex];
-    op1.innerText = answerChoices[currentIndex].a[0].text
-    op2.innerText = answerChoices[currentIndex].a[1].text;
-    currentIndex++;
-  }
-
-
-  //Event Listener to call evaluate function
-  document.querySelector(".option-container").addEventListener("click", evaluate);
-
-  function evaluate(e) {
-    console.log(e.target.innerText); //checks which answer was chosen
-    console.log(answerChoices[currentIndex - 1].a[0].correct)
-    console.log(currentIndex);
-    console.log(pokemonz.length);
-    if (currentIndex != pokemonz.length) {
-      if (e.target.innerText === answerChoices[currentIndex-1].a[0].correct) {
-        console.log("correct");
-        //display "correct" 
-        next();
-      } else {
-        time = time - 10;
-        console.log("incorrect");
-        //display "incorrect" 
-        next();
-      }
+//start button function
+function start() {
+  document.getElementById('start-btn').style.display = 'none';
+  document.getElementById('op1').removeAttribute("style");
+  document.getElementById('op2').removeAttribute("style");
+  next();
+  var countdown = setInterval(function () {
+    if (time > 0) {
+      let seconds = time;
+      countdownEl.innerText = seconds;
+      time--;
     } else {
-      finish();
+      countdownEl.innerText = '0:00';
+      clearInterval(countdown);
     }
-  }
+  }, 1000);
 
-  function finish() {
-    document.getElementById('countdown').style.display = 'none';
-    saveHighscore();
-    // initials = window.prompt("Insert Initials for Scoring")
+}
+
+
+//event listener click to call start function
+document.getElementById("start-btn").addEventListener('click', start);
+
+function next() {
+  if (currentIndex >= pokemonz.length)
+    currentIndex = 0; //looping statement   
+  whoThat.src = pokemonz[currentIndex];
+  op1.innerText = answerChoices[currentIndex].a[0].text
+  op2.innerText = answerChoices[currentIndex].a[1].text;
+  currentIndex++;
+}
+
+
+//Event Listener to call evaluate function
+document.querySelector(".option-container").addEventListener("click", evaluate);
+
+function evaluate(e) {
+  console.log(e.target.innerText); //checks which answer was chosen
+  console.log(answerChoices[currentIndex - 1].a[0].correct)
+  console.log(currentIndex);
+  console.log(pokemonz.length);
+  if (e.target.innerText === answerChoices[currentIndex - 1].a[0].correct) {
+    console.log("correct");
+    if (currentIndex == pokemonz.length) {
+    const delayFin = setTimeout(finish, 1000);
+    }
+    next();
+  } else {
+    time = time - 10;
+    console.log("incorrect");
+    if (currentIndex == pokemonz.length) {
+    const delayFin = setTimeout(finish, 1000);
+    }
+    next();
   }
+}
+
+function finish() {
+  document.getElementById('countdown').style.display = 'none';
+  saveHighscore();
+  // initials = window.prompt("Insert Initials for Scoring")
+}
 
 function saveHighscore() {
   // get value of input box
@@ -120,7 +121,7 @@ function saveHighscore() {
 
     // format new score object for current user
     var newScore = `${initials}: ${countdownEl.innerText} points`;
-  
+
     // save to localstorage
     highscores.push(newScore);
     window.localStorage.setItem("highscores", JSON.stringify(highscores));
@@ -129,7 +130,7 @@ function saveHighscore() {
     window.open("highscores.html");
 
     //refreshes quiz
-    window.location.href = "index.html" 
+    window.location.href = "index.html"
 
 
   }
