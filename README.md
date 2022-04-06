@@ -1,14 +1,20 @@
 # Who's that Pokemon Javascript Quiz
 
+### Development Process
+
 This homework assignment applies what we learned in Javascript mainly. It also combines Javascript with our knowledge and experience with HTML & CSS. I created a "Who's That Pokemon?!" Quiz. Instead of CSS, I used what we learned regarding Bootstrap 5.
 
 ## Getting Started
 
 ### Prerequisites
 
-* Visual Studio Code, GitBash, & Google Chrome
+* Google Chrome or any web browser
 
-## Deployment
+### Installation
+
+* Google Chrome or any web browser
+
+## Functionality
 
 To begin the quiz, you will need to click on the start button shown in the screenshot below. 
 
@@ -20,9 +26,11 @@ Then the quiz will test your knowledge of Pokemon and possibly meme culture. The
 
 ![image](https://user-images.githubusercontent.com/98362675/162071946-b0a330dd-8e62-4aa6-a586-653284034206.png)
  
-## Built With
+## Technologies Used
 
-* Visual Studio Code & Bootstrap 5
+* Visual Studio Code
+* Bootstrap 5
+* Google Chrome
 
 ## Link to Quiz
 
