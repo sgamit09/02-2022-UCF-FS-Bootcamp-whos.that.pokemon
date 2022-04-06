@@ -2,7 +2,7 @@
 
 ### Development Process
 
-This homework assignment applies what we learned in Javascript mainly. It also combines Javascript with our knowledge and experience with HTML & CSS. I created a "Who's That Pokemon?!" Quiz. Instead of CSS, I used what we learned regarding Bootstrap 5.
+This homework assignment applies what was learned in Javascript mainly. It also combines Javascript with the knowledge and experience with HTML & CSS. I created a "Who's That Pokemon?!" Quiz. Instead of CSS, I used what we learned regarding Bootstrap 5. The quiz was created using functions, eventListeners, local Storage within the browser, and if/else statements. 
 
 ## Getting Started
 
