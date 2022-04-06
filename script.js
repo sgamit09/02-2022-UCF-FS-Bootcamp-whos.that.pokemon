@@ -33,7 +33,6 @@ var answerChoices = [
 startScreen();
 
 function startScreen() {
-  document.getElementById('score').style.display = 'none';
   document.getElementById('op1').style.display = 'none';
   document.getElementById('op2').style.display = 'none';
 
@@ -83,19 +82,19 @@ function next() {
 document.querySelector(".option-container").addEventListener("click", evaluate);
 
 function evaluate(e) {
-  console.log(e.target.innerText); //checks which answer was chosen
-  console.log(answerChoices[currentIndex - 1].a[0].correct)
-  console.log(currentIndex);
-  console.log(pokemonz.length);
+  // console.log(e.target.innerText); //checks which answer was chosen
+  // console.log(answerChoices[currentIndex - 1].a[0].correct)
+  // console.log(currentIndex);
+  // console.log(pokemonz.length);
   if (e.target.innerText === answerChoices[currentIndex - 1].a[0].correct) {
-    console.log("correct");
+    // console.log("correct");
     if (currentIndex == pokemonz.length) {
     const delayFin = setTimeout(finish, 1000);
     }
     next();
   } else {
     time = time - 10;
-    console.log("incorrect");
+    // console.log("incorrect");
     if (currentIndex == pokemonz.length) {
     const delayFin = setTimeout(finish, 1000);
     }
@@ -106,7 +105,6 @@ function evaluate(e) {
 function finish() {
   document.getElementById('countdown').style.display = 'none';
   saveHighscore();
-  // initials = window.prompt("Insert Initials for Scoring")
 }
 
 function saveHighscore() {
