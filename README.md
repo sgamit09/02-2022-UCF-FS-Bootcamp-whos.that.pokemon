@@ -30,4 +30,4 @@ https://sgamit09.github.io/whos.that.pokemon/
  
 ## Authors
 
-* **Scott Gamit** - *Initial work* - https://github.com/sgamit09
+* **Scott Gamit** - https://github.com/sgamit09
