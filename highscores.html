@@ -1,0 +1,15 @@
+<ul id="scores">Welcome to the High Scores!</ul>
+
+
+<script>
+    var listMe = document.getElementById("scores");
+    scoringList = JSON.parse(localStorage.getItem("highscores"));
+    console.log(scoringList);
+    scoringList.forEach(listScores);
+
+    function listScores (scoringList){
+    let li = document.createElement("li");
+    li.innerHTML = scoringList;
+    listMe.appendChild(li);
+    }
+</script>
